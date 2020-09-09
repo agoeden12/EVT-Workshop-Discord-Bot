@@ -13,15 +13,16 @@ client.on("message", async (message) => {
   const args = commandBody.split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "member") {
+  if (command === "hours") {
     const url = baseUrl + `/users/getUser?id=${args.shift()}`;
 
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
+    console.log(data.data);
+    var output = `**${data.data.name}:**\nHours committed: ${data.data.hours.toFixed(2)}`
 
-    message.reply(`\`\`\`json\n${JSON.stringify(data)}\n\`\`\``);  
+    message.channel.send(output);  
   }
 
   if (command === "shop") {
@@ -31,8 +32,18 @@ client.on("message", async (message) => {
     const data = await response.json();
 
     console.log(data);
-    message.reply(`There ${data == 1 ? `is ${data} person` : `are ${data} people`} in the shop right now.`);  
+    message.channel.send(`There ${data == 1 ? `is ${data} person` : `are ${data} people`} in the shop right now.`);  
+    
   }
+});
+
+client.on('ready', () => {
+  console.log('Connecting...');
+  client.user.setStatus('available'); // Can be 'available', 'idle', 'dnd', or 'invisible'
+  client.user.setUsername("Watcher");
+  client.user.setPresence({
+      "activity": {"name": "Avoiding Covid"}
+  });
 });
 
 client.login(config.BOT_TOKEN);

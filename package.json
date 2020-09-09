@@ -4,7 +4,8 @@
   "description": "team_hours_discord_bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://gitlab.com/agoeden12/team_hours_discord_bot#readme",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4"
   }
 }

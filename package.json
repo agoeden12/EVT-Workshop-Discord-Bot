@@ -19,7 +19,7 @@
   "homepage": "https://gitlab.com/agoeden12/team_hours_discord_bot#readme",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "nodemon": "^2.0.4"
   }
 }
